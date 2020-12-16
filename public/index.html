@@ -35,18 +35,14 @@
       </div>
     </nav>
 
-    <header>
-      <div>
-        <img src="/images/profile-hex.png">
-      </div>
+    <header class="page">
+      <img src="/images/profile-hex.png">
       <br>
-      <div>
-        <h2>Your Name</h2>
-      </div>
+      <h2>Your Name</h2>
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
+    <main>
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
@@ -54,10 +50,33 @@
           <textarea name="text" id="tweet-text"></textarea>
           <div class="char-counter">
             <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+      <section class="tweet-container">
+        <article>
+          <header>
+            <div class="profile-info">
+              <img src="./images/male-1.png" alt="">
+              <p>Newton</p>
+            </div>
+            <p id="handle">@SirIsaac</p>
+          </header>
+          <div class="tweet">
+            <p>Hello World!</p>
+          </div>
+          <footer>
+            <p>10 days ago</p>
+            <div class="icons">
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
     </main>
+    <br>
   </body>
 </html>
