@@ -1,4 +1,4 @@
-header{
+header.page{
   display: flex;
   height: 400px;
   width: 100%;
@@ -7,4 +7,6 @@ header{
   align-items: center;
   background-color: #cc9302;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  margin-top: 120px;
 }
+
