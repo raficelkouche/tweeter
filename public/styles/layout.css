@@ -24,7 +24,7 @@ body {
   align-items: center;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -32,11 +32,76 @@ main{
   align-items: center;
 }
 
-main div{
-  height:100px;
+.tweet-container {
+  width: 100%;
+  font-weight: 100;
 }
 
+.tweet-container article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border: 4px solid;
+  padding: 15px; 
 
-/*
+}
+
+.tweet-container header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet-container header .profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tweet-container header img{
+  width: 100px;
+  height: 100px;
+}
+
+.tweet-container #handle {
+  color: #f4f1ec;
+}
+
+.tweet-container .tweet {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+}
+
+.tweet-container footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 4px solid;
+  font-size: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.tweet-container .icons {
+  color: #4056A1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50px;
+  
+}
+
+.tweet-container:hover {
+  box-shadow: 10px 6px 2px 0px #ccc;
+}
+
+.tweet-container:hover #handle {
+  color: rgba(64, 86, 161, 0.3);
+  font-weight: bold;
+}
+  /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
