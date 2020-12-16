@@ -43,6 +43,7 @@ main {
   justify-content: start;
   border: 4px solid;
   padding: 15px; 
+  margin-top: 20px;
 
 }
 
@@ -60,12 +61,12 @@ main {
 }
 
 .tweet-container header img{
-  width: 100px;
-  height: 100px;
+  margin-right: 10px;
 }
 
 .tweet-container #handle {
-  color: #f4f1ec;
+  color: rgba(64, 86, 161, 0.3);
+  visibility: hidden;
 }
 
 .tweet-container .tweet {
@@ -94,13 +95,13 @@ main {
   
 }
 
-.tweet-container:hover {
+.tweet-container article:hover {
   box-shadow: 10px 6px 2px 0px #ccc;
 }
 
-.tweet-container:hover #handle {
-  color: rgba(64, 86, 161, 0.3);
+.tweet-container article:hover #handle {
   font-weight: bold;
+  visibility: visible;
 }
   /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
