@@ -61,9 +61,23 @@ $(document).ready(function() {
     }
   ]
 
-  //const $tweet = createTweetElement(tweetData);
-
   // Test / driver code (temporary)
-  //console.log($tweet); // to see what it looks like
   renderTweets(data) // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+
+  $(".new-tweet form").on("submit", function(event) {
+    console.log($(this).children("#tweet-text").serialize());
+    event.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: "http://localhost:8080/tweets",
+      data: $(this).children("#tweet-text").serialize()
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((result) => {
+        alert(result.responseJSON.error)
+      })
+  })
+
 });
