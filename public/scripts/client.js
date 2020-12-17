@@ -4,6 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
+  
+  const escape = function(input) {
+    const div = $("<div>")
+    div.text(input);
+    return div.text();
+  }
+  
   const createTweetElement = function (tweetData) {
     const $tweet = `<article>
           <header>
@@ -14,7 +21,7 @@ $(document).ready(function() {
             <p id="handle">${tweetData.user.handle}</p>
           </header>
           <div class="tweet">
-            <p>${tweetData.content.text}</p>
+            <p>${escape(tweetData.content.text)}</p>
           </div>
           <footer>
             <p>${Math.floor((Date.now() - tweetData["created_at"]) * (1 / 86400000))} days ago</p>
