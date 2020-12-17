@@ -29,10 +29,9 @@
   background-color: #f4f1ec;
   border-width: 0 0 0.25rem 0;
   resize: none;
-  outline: none;
-  height: 2rem;
+  height: 4rem;
   margin-top: 0.5rem;
-  overflow: hidden;
+  width: 100%;
 }
 
 .char-counter output.negative {
