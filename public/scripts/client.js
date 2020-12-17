@@ -31,7 +31,7 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     tweets.forEach((elm) => {
       let $tweet = createTweetElement(elm);
-      $('.tweet-container').append($tweet)
+      $('.tweet-container').prepend($tweet)
     })
   };
 
@@ -43,19 +43,41 @@ $(document).ready(function() {
       .then(renderTweets)
   };
 
+  const updateTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: "http://localhost:8080/tweets"
+    })
+      .then((result) => {
+        let $tweet = createTweetElement(result[result.length - 1]);
+        $('.tweet-container').prepend($tweet);
+      })
+  }
+
   loadTweets();
   
+  //New tweet form validation and submission
   $(".new-tweet form").on("submit", function(event) {
     event.preventDefault();
-    $.ajax({
-      method: "POST",
-      url: "http://localhost:8080/tweets",
-      data: $(this).children("#tweet-text").serialize()
-    })
-      .then()
-      .catch((result) => {
-        alert(result.responseJSON.error)
-      })
+    const $data = $(this).children("#tweet-text");
+    
+    if (!$data.val()) {
+      alert('Tweet is empty! Please try again');
+    } else if ($data.val().length > 140) {
+      alert('Character limit has been exceeded! Please try again');
+    } else {
+        $.ajax({
+          method: "POST",
+          url: "http://localhost:8080/tweets",
+          data: $data.serialize()
+        })
+          .then(() => {
+            $(".new-tweet form").trigger("reset");
+            updateTweets();
+          })
+          .catch((result) => {
+            alert(result.responseJSON.error)
+          })
+    }
   })
-
 });
