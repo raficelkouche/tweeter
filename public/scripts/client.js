@@ -54,7 +54,13 @@ $(document).ready(function() {
       })
   }
 
-  loadTweets();
+  //Reset the form fields
+  const resetForm = function () {
+    const $form = $(".new-tweet form");
+    $form.trigger("reset");
+    $form.find("output").text(140);
+  }; 
+
   
   //New tweet form validation and submission
   $(".new-tweet form").on("submit", function(event) {
@@ -72,12 +78,14 @@ $(document).ready(function() {
           data: $data.serialize()
         })
           .then(() => {
-            $(".new-tweet form").trigger("reset");
             updateTweets();
+            resetForm();
           })
           .catch((result) => {
             alert(result.responseJSON.error)
           })
     }
   })
+
+  loadTweets();
 });
