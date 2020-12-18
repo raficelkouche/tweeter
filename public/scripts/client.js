@@ -1,25 +1,12 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(document).ready(function() {
-  $(".new-tweet .error-message").hide();
-  $(".new-tweet").children("form").hide();
-
-  $(".fa-angle-double-down").on("click", function() {
-   $(".new-tweet").children("form").slideToggle('slow', function() {
-     $("#tweet-text").focus();
-   })
-   
-  })
-
+  
+  //function to prevent XSS
   const escape = function(input) {
     const div = $("<div>")
     div.text(input);
     return div.text();
   }
-  
+  //Creates a new tweet element from a given object 
   const createTweetElement = function (tweetData) {
     const $tweet = `<article>
           <header>
@@ -109,6 +96,24 @@ $(document).ready(function() {
           })
     }
   })
+  $(".new-tweet .error-message").hide();
+  $(".new-tweet").children("form").hide();
 
+  $(".fa-angle-double-down").on("click", function () {
+    $(".new-tweet").children("form").slideToggle('slow', function () {
+      $("#tweet-text").focus();
+    })
+  })
+
+  $(window).on("scroll", function () {
+    $(".lower-toggle-button").css("display", "flex");
+
+  })
+
+  $(".lower-toggle-button").on("click", function () {
+    $("html").animate({ scrollTop: 0 }, "slow")
+    $(".new-tweet").children("form").slideDown();
+    $("#tweet-text").focus();
+  })
   loadTweets();
 });

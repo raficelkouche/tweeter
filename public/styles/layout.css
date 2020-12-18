@@ -103,6 +103,29 @@ main {
   font-weight: bold;
   visibility: visible;
 }
+
+.lower-toggle-button {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid red;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.fa-angle-double-up{
+  color: white;
+}
+
+.lower-toggle-button:hover {
+  background-color: green;
+  border-color: green;
+}
   /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
