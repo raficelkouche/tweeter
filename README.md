@@ -5,7 +5,9 @@ A simple single-page AJAX-based Twitter clone that uses jQuery, HTML5 and CSS.
 ## Final Product
 
 !["Desktop View"](https://github.com/raficelkouche/tweeter/blob/master/public/images/main-laptop.png)
+
 !["Mobile View"](https://github.com/raficelkouche/tweeter/blob/master/public/images/main-mobile.png)
+
 !["Tweet Posted"](https://github.com/raficelkouche/tweeter/blob/master/public/images/tweet.png)
 
 ## Dependencies
