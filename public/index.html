@@ -36,15 +36,22 @@
     </nav>
 
     <header class="page">
-      <img src="/images/profile-hex.png">
-      <br>
-      <h2>Your Name</h2>
+      <div id="profile-info">
+        <img src="/images/profile-hex.png">
+        <br>
+        <h2>Alison Jane</h2>
+      </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main>
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- <h2>Compose Tweet</h2> -->
+        <div class="error-message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p></p>
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
         <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
@@ -54,8 +61,7 @@
           </div>
         </form>
       </section>
-      <section class="tweet-container">
-      </section>
+      <section class="tweet-container"></section>
     </main>
     <br>
   </body>
