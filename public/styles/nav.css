@@ -32,7 +32,21 @@
 
 .fa-angle-double-down {
   color: red;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce-effect 1s infinite;
+  
 }
+
+@keyframes bounce-effect {
+  0%, 25%, 50%, 75%, 100% {
+    transform: traslateY(3px);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+}
+
 
 @media only screen and (min-width: 1024px) {
   .top-nav-bar {
