@@ -4,7 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  
+  $(".new-tweet .error-message").hide();
+
   const escape = function(input) {
     const div = $("<div>")
     div.text(input);
@@ -73,11 +74,18 @@ $(document).ready(function() {
   $(".new-tweet form").on("submit", function(event) {
     event.preventDefault();
     const $data = $(this).children("#tweet-text");
+    const $error = $(".new-tweet .error-message");
     
+    //hide the error on submit
+    $error.slideUp();
+
     if (!$data.val()) {
-      alert('Tweet is empty! Please try again');
+      $error.children("p").text("Tweet is empty! I am sure you can come up with something better than that...")
+      $error.slideDown();
     } else if ($data.val().length > 140) {
-      alert('Character limit has been exceeded! Please try again');
+      //create an error function that takes in the element and the type of error
+      $error.children("p").text("That was a pretty long tweet! You might want to cut it down a bit to see it come to life...")
+      $error.slideDown();
     } else {
         $.ajax({
           method: "POST",
@@ -85,8 +93,8 @@ $(document).ready(function() {
           data: $data.serialize()
         })
           .then(() => {
-            updateTweets();
             resetForm();
+            updateTweets();
           })
           .catch((result) => {
             alert(result.responseJSON.error)
