@@ -5,6 +5,14 @@
  */
 $(document).ready(function() {
   $(".new-tweet .error-message").hide();
+  $(".new-tweet").children("form").hide();
+
+  $(".fa-angle-double-down").on("click", function() {
+   $(".new-tweet").children("form").slideToggle('slow', function() {
+     $("#tweet-text").focus();
+   })
+   
+  })
 
   const escape = function(input) {
     const div = $("<div>")
