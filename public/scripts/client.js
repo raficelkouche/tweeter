@@ -52,7 +52,7 @@ $(document).ready(function() {
   //Render the tweets on the page ordered by date (most recent first)
   const renderTweets = function(tweets) {
     tweets.forEach((elm) => {
-      let $tweet = createTweetElement(elm);
+      const $tweet = createTweetElement(elm);
       $('.tweet-container').prepend($tweet);
     });
   };
@@ -73,7 +73,7 @@ $(document).ready(function() {
       url: "http://localhost:8080/tweets"
     })
       .then((result) => {
-        let $tweet = createTweetElement(result[result.length - 1]);
+        const $tweet = createTweetElement(result[result.length - 1]);
         $('.tweet-container').prepend($tweet);
       });
   };

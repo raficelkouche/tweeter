@@ -1,4 +1,4 @@
-.top-nav-bar{
+.top-nav-bar {
   height: 120px;
   width: 100%;
   background-color: #cc9302;
@@ -13,19 +13,19 @@
   top: 0;
 }
 
-#site-logo{
+#site-logo {
   font-family: 'bungee', sans-serif;
   font-size: 2rem;
 }
 
-#new-tweet{
+#new-tweet {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#new-tweet p{
+#new-tweet p {
   margin-bottom: 0;
 }
 
@@ -34,7 +34,6 @@
   -moz-animation: bounce 2s infinite;
   -webkit-animation: bounce 2s infinite;
   animation: bounce-effect 1s infinite;
-  
 }
 
 @keyframes bounce-effect {

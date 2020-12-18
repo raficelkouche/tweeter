@@ -1,7 +1,7 @@
-$(document).ready(function () {
-  $(".new-tweet form textarea").on("input", function () {
+$(document).ready(function() {
+  $(".new-tweet form textarea").on("input", function() {
     //Count the characters
-    const charCount = 140 - $(this).val().length
+    const charCount = 140 - $(this).val().length;
     $(this).siblings().children("output").text(charCount);
 
     //Check for character limit
@@ -11,5 +11,5 @@ $(document).ready(function () {
     else {
       $(this).siblings().children("output").removeClass("negative");
     }
-  })
-})
+  });
+});

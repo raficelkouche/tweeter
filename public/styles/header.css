@@ -1,4 +1,4 @@
-header.page{
+header.page {
   display: flex;
   height: 400px;
   width: 100%;
@@ -10,7 +10,7 @@ header.page{
   margin-top: 120px;
 }
 
-#profile-info{
+#profile-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,6 +29,4 @@ header.page{
     justify-self: flex-end;
     height: 70%;
   }
-
-
  }

@@ -51,7 +51,7 @@ main {
   align-items: center;
 }
 
-.tweet-container header img{
+.tweet-container header img {
   margin-right: 10px;
 }
 
@@ -87,7 +87,7 @@ main {
   
 }
 
-.tweet-container article:hover .icons{
+.tweet-container article:hover .icons {
   visibility: visible;
 }
 
@@ -114,7 +114,7 @@ main {
   width: 50px;
 }
 
-.fa-angle-double-up{
+.fa-angle-double-up {
   color: white;
 }
 
