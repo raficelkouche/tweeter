@@ -106,3 +106,23 @@ main {
   /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media only screen and (min-width: 1024px) {
+
+  body {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-around;
+      padding-top: 150px;
+      
+      margin: auto;
+    }
+
+  main {
+    width: 65%;
+  }
+
+
+
+ }

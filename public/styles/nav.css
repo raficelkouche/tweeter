@@ -1,7 +1,9 @@
 .top-nav-bar{
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  /* background-color: #4056A1; */
+  background-color: #cc9302;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   color: #ffffff;
   padding: 1.5em;
   display: flex;
@@ -30,4 +32,11 @@
 
 .fa-angle-double-down {
   color: red;
+}
+
+@media only screen and (min-width: 1024px) {
+  .top-nav-bar {
+    background-color: #4056A1;
+    background-image: none;
+  }
 }
