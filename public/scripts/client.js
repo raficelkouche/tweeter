@@ -2,13 +2,13 @@ $(document).ready(function() {
   
   //Parse a string to prevent XSS
   const escape = function(input) {
-    const div = $("<div>")
+    const div = $("<div>");
     div.text(input);
     return div.text();
-  }
+  };
 
   //Determine how long ago a tweet was posted
-  const adjustTweetTime = function (timeInMs) {
+  const adjustTweetTime = function(timeInMs) {
     const MS_ONE_DAY = 86400000;
     const MS_ONE_MIN = 60000;
     const difference = Date.now() - timeInMs;
@@ -22,10 +22,10 @@ $(document).ready(function() {
     } else {
       return `<1 minute ago`;
     }
-  }
+  };
 
-  //Creates a new tweet element from a given object 
-  const createTweetElement = function (tweetData) {
+  //Creates a new tweet element from a given object
+  const createTweetElement = function(tweetData) {
     const $tweet = `<article>
           <header>
             <div class="profile-info">
@@ -45,16 +45,16 @@ $(document).ready(function() {
               <i class="fas fa-heart"></i>
             </div>
           </footer>
-        </article>`
+        </article>`;
     return $tweet;
-  }
+  };
 
   //Render the tweets on the page ordered by date (most recent first)
   const renderTweets = function(tweets) {
     tweets.forEach((elm) => {
       let $tweet = createTweetElement(elm);
-      $('.tweet-container').prepend($tweet)
-    })
+      $('.tweet-container').prepend($tweet);
+    });
   };
 
   //load all the tweets and render them on the page
@@ -63,7 +63,7 @@ $(document).ready(function() {
       method: 'GET',
       url: "http://localhost:8080/tweets"
     })
-      .then(renderTweets)
+      .then(renderTweets);
   };
 
   //Get the most recent tweet only and render it on the page
@@ -75,30 +75,30 @@ $(document).ready(function() {
       .then((result) => {
         let $tweet = createTweetElement(result[result.length - 1]);
         $('.tweet-container').prepend($tweet);
-      })
-  }
+      });
+  };
 
   //Reset the form fields
-  const resetForm = function () {
+  const resetForm = function() {
     const $form = $(".new-tweet form");
     $form.trigger("reset");
     $form.find("output").text(140);
-  }; 
+  };
 
   //Validate the tweet before posting
   const validateTweet = function($data, $error) {
     if (!$data.val()) {
-      $error.children("p").text("Tweet is empty! I am sure you can come up with something better than that...")
+      $error.children("p").text("Tweet is empty! I am sure you can come up with something better than that...");
       $error.slideDown();
       return false;
     } else if ($data.val().length > 140) {
-      $error.children("p").text("That was a pretty long tweet! You might want to cut it down a bit to see it come to life...")
+      $error.children("p").text("That was a pretty long tweet! You might want to cut it down a bit to see it come to life...");
       $error.slideDown();
       return false;
     } else {
       return true;
     }
-  }
+  };
   
   //New tweet form validation and submission
   $(".new-tweet form").on("submit", function(event) {
@@ -112,18 +112,18 @@ $(document).ready(function() {
 
     //Post the tweet if it is valid
     if (validateTweet($data, $error)) {
-        $.ajax({
-          method: "POST",
-          url: "http://localhost:8080/tweets",
-          data: $data.serialize()
+      $.ajax({
+        method: "POST",
+        url: "http://localhost:8080/tweets",
+        data: $data.serialize()
+      })
+        .then(() => {
+          resetForm();
+          updateTweets();
         })
-          .then(() => {
-            resetForm();
-            updateTweets();
-          })
-          .catch((result) => {
-            alert(result.responseJSON.error)
-          })
+        .catch((result) => {
+          alert(result.responseJSON.error);
+        });
     }
   });
 
@@ -132,24 +132,24 @@ $(document).ready(function() {
   $(".new-tweet").children("form").hide();
 
   //registers a handler for the arrows in the navbar
-  $(".fa-angle-double-down").on("click", function () {
+  $(".fa-angle-double-down").on("click", function() {
     $(".error-message").slideUp(); //hide the error in case it was there
     //slides the form up/down depending on its current status
-    $(".new-tweet").children("form").slideToggle('slow', function () {
+    $(".new-tweet").children("form").slideToggle('slow', function() {
       $("#tweet-text").focus();
-    })
-  })
+    });
+  });
 
   //Displays an arrow at the bottom of the page when the user starts scrolling
-  $(window).on("scroll", function () {
+  $(window).on("scroll", function() {
     $(".lower-toggle-button").css("display", "flex");
-  })
-    //Scroll to the top of the page and show the form when the user clicks on the arrows
-    $(".lower-toggle-button").on("click", function () {
-      $("html").animate({ scrollTop: 0 }, "slow")
-      $(".new-tweet").children("form").slideDown();
-      $("#tweet-text").focus();
-    })
+  });
+  //Scroll to the top of the page and show the form when the user clicks on the arrows
+  $(".lower-toggle-button").on("click", function() {
+    $("html").animate({ scrollTop: 0 }, "slow");
+    $(".new-tweet").children("form").slideDown();
+    $("#tweet-text").focus();
+  });
 
   //Load the tweets when the document is ready
   loadTweets();
