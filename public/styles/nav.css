@@ -1,7 +1,6 @@
 .top-nav-bar{
   height: 120px;
   width: 100%;
-  /* background-color: #4056A1; */
   background-color: #cc9302;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   color: #ffffff;
@@ -46,7 +45,6 @@
     transform: translateY(-3px);
   }
 }
-
 
 @media only screen and (min-width: 1024px) {
   .top-nav-bar {
