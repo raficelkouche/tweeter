@@ -80,10 +80,15 @@ main {
 .tweet-container .icons {
   color: #4056A1;
   display: flex;
+  visibility: hidden;
   flex-direction: row;
   justify-content: space-between;
   width: 50px;
   
+}
+
+.tweet-container article:hover .icons{
+  visibility: visible;
 }
 
 .tweet-container article:hover {
