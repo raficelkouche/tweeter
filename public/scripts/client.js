@@ -117,8 +117,10 @@ $(document).ready(function() {
   $(".new-tweet").children("form").hide();
 
   $(".fa-angle-double-down").on("click", function () {
+    $(".error-message").slideUp();
     $(".new-tweet").children("form").slideToggle('slow', function () {
       $("#tweet-text").focus();
+      
     })
   })
 
