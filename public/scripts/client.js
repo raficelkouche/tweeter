@@ -1,11 +1,28 @@
 $(document).ready(function() {
   
-  //function to prevent XSS
+  //Parse a string to prevent XSS
   const escape = function(input) {
     const div = $("<div>")
     div.text(input);
     return div.text();
   }
+  //Determine how long ago a tweet was posted
+  const adjustTweetTime = function (timeInMs) {
+    const MS_ONE_DAY = 86400000;
+    const MS_ONE_MIN = 60000;
+    const difference = Date.now() - timeInMs;
+
+    if (difference >= MS_ONE_DAY) {
+      //report in days if difference is more than 24 hours
+      return `${Math.floor(difference / MS_ONE_DAY)} day(s) ago`
+      //report in minutes if difference is less than 24 hours
+    } else if (difference < MS_ONE_DAY && difference >= MS_ONE_MIN) {
+      return `${Math.floor(difference / MS_ONE_MIN)} minute(s) ago`
+    } else {
+      return `<1 minute ago`
+    }
+  }
+
   //Creates a new tweet element from a given object 
   const createTweetElement = function (tweetData) {
     const $tweet = `<article>
@@ -20,7 +37,7 @@ $(document).ready(function() {
             <p>${escape(tweetData.content.text)}</p>
           </div>
           <footer>
-            <p>${Math.floor((Date.now() - tweetData["created_at"]) * (1 / 86400000))} days ago</p>
+            <p>${adjustTweetTime(tweetData["created_at"])}</p>
             <div class="icons">
               <i class="fas fa-flag"></i>
               <i class="fas fa-retweet"></i>
