@@ -4,11 +4,9 @@ A simple single-page AJAX-based Twitter clone that uses jQuery, HTML5 and CSS.
 
 ## Final Product
 
-!["Homepage"](https://github.com/raficelkouche/tinyapp/blob/master/docs/home.png)
-!["Display all the shortened URLs for a user"](https://github.com/raficelkouche/tinyapp/blob/master/docs/urls.png)
-!["Display a single URL"](https://github.com/raficelkouche/tinyapp/blob/master/docs/specific_url.png)
-!["Create a new shortened URL"](https://github.com/raficelkouche/tinyapp/blob/master/docs/create%20URL.png)
-
+!["Desktop View"](https://github.com/raficelkouche/tweeter/blob/master/public/images/main-laptop.png)
+!["Mobile View"](https://github.com/raficelkouche/tweeter/blob/master/public/images/main-mobile.png)
+!["Tweet Posted"](https://github.com/raficelkouche/tweeter/blob/master/public/images/tweet.png)
 
 ## Dependencies
 
